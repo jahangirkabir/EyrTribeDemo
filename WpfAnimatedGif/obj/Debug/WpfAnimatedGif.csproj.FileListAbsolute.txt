@@ -1,0 +1,5 @@
+C:\Users\JK\Documents\Visual Studio 2015\Projects\DyslexiaDemo\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.dll
+C:\Users\JK\Documents\Visual Studio 2015\Projects\DyslexiaDemo\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.pdb
+C:\Users\JK\Documents\Visual Studio 2015\Projects\DyslexiaDemo\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.csprojResolveAssemblyReference.cache
+C:\Users\JK\Documents\Visual Studio 2015\Projects\DyslexiaDemo\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.dll
+C:\Users\JK\Documents\Visual Studio 2015\Projects\DyslexiaDemo\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.pdb

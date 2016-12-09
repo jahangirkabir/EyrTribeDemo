@@ -1,0 +1,810 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TETCSharpClient</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:TETCSharpClient.BlockingQueue`1" -->
+        <!-- Badly formed XML comment ignored for member "T:TETCSharpClient.SingleFrameBlockingQueue`1" -->
+        <member name="T:TETCSharpClient.SynchronizedList`1">
+            <summary>
+            Threadsafe List implementation for .NET 3.5 compliance
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.SafeEnumerator`1">
+            <summary>
+            Threadsafe Enumerator implementation for .NET 3.5 compliance
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.Data.Point3D">
+            <summary>
+            A 3D coordinate with double precision.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Accuracy.Average">
+            <summary>
+            Accuracy in degrees
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Accuracy.Left">
+            <summary>
+            Accuracy in degrees, left eye
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Accuracy.Right">
+            <summary>
+            Accuracy in degrees, right eye
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.Data.Eye">
+            <summary>
+            Contains tracking results of a single eye.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Eye.RawCoordinates">
+            <summary>
+            Raw gaze coordinates in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Eye.SmoothedCoordinates">
+            <summary>
+            Smoothed gaze coordinates in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Eye.PupilCenterCoordinates">
+            <summary>
+            Pupil center coordinates in normalized values
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.Eye.PupilSize">
+            <summary>
+            Pupil size in normalized value
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.MeanError.Average">
+            <summary>
+            Mean error in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.MeanError.Left">
+            <summary>
+            Mean error in pixels, left eye
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.MeanError.Right">
+            <summary>
+            Mean error in pixels, right eye
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.Data.Point2D">
+            <summary>
+            A 2D coordinate with double precision.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.StandardDeviation.Average">
+            <summary>
+            Average standard deviation, in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.StandardDeviation.Left">
+            <summary>
+            Left eye standard deviation, in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.StandardDeviation.Right">
+            <summary>
+            Right eye standard deviation, in pixels
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.CalibrationPoint.STATE_NO_DATA">
+            <summary>
+            State defines that no data is available for calibration point
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.CalibrationPoint.STATE_RESAMPLE">
+            <summary>
+            State defines that calibration point should be resampled
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.CalibrationPoint.STATE_OK">
+            <summary>
+            State defines that calibration point was successfully sampled
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.State">
+            <summary>
+            State of calib point
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.Coordinates">
+            <summary>
+            Coordinate in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.MeanEstimatedCoords">
+            <summary>
+            Mean estimated coordinates
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.Accuracy">
+            <summary>
+            Accuracy
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.MeanError">
+            <summary>
+            Mean Error
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationPoint.StandardDeviation">
+            <summary>
+            Standard Deviation
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.Data.CalibrationResult">
+            <summary>
+            CalibrationResult holds outcome of a calibration procedure. It defines if
+            calibration was successful or if certain calibration points needs resampling.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationResult.Result">
+            <summary>
+            Was the calibration sucessful?
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationResult.AverageErrorDegree">
+            <summary>
+            average error in degrees
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationResult.AverageErrorDegreeLeft">
+            <summary>
+            average error in degs, left eye
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationResult.AverageErrorDegreeRight">
+            <summary>
+            average error in degs, right eye
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.CalibrationResult.Calibpoints">
+            <summary>
+            complete list of calibrationpoints
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.Data.GazeData">
+            <summary>
+            Contains eye tracking results of a single frame. It holds a state that defines
+            the quality of the current tracking and fine grained tracking details down to eye level.
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.GazeData.STATE_TRACKING_GAZE">
+            <summary>
+            Set when engine is calibrated and glint tracking successfully.
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.GazeData.STATE_TRACKING_EYES">
+            <summary>
+            Set when engine has detected eyes.
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.GazeData.STATE_TRACKING_PRESENCE">
+            <summary>
+            Set when engine has detected either face, eyes or glint.
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.GazeData.STATE_TRACKING_FAIL">
+            <summary>
+            Set when tracking failed in the last process frame.
+            </summary>
+        </member>
+        <member name="F:TETCSharpClient.Data.GazeData.STATE_TRACKING_LOST">
+            <summary>
+            Set when tracking has failed consecutively over a period of time defined by engine.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.State">
+            <summary>
+            State of this frame. States can be extracted using the STATE_ mask constants.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.RawCoordinates">
+            <summary>
+            Raw gaze coordinates in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.SmoothedCoordinates">
+            <summary>
+            Smoothed gaze coordinates in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.LeftEye">
+            <summary>
+            Left GazeEye object
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.RightEye">
+            <summary>
+            Right GazeEye object
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.TimeStamp">
+            <summary>
+            Timestamp for this frame
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.TimeStampString">
+            <summary>
+            Timestamp for this frame represented in String form
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.Data.GazeData.IsFixated">
+            <summary>
+            Is user fixated in this frame?
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeBroadcaster">
+            <summary>
+            Threaded broadcaster responsible for distributing GazeData update to all attached listeners.
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeManager">
+            <summary>
+            This singleton is the main entry point of the TET C# Client. It manages all routines associated to gaze control.
+            Using this class a developer can 'calibrate' an eye tracking setup and attach listeners to recieve live data streams
+            of <see cref="T:TETCSharpClient.Data.GazeData"/> updates.
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeManager.TrackerState">
+            <summary>
+            The possible states of the Tracer device
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeManager.ClientMode">
+            <summary>
+            The possible frame grabbing modes of the Tracker Server
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeManager.FrameRate">
+            <summary>
+            The possible frame rates of the Tracker Server
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.GazeManager.ApiVersion">
+            <summary>
+            The EyeTribe API compliance levels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.IsConnected">
+            <summary>
+            Is the client library connected to Tracker Server?
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.IsActivated">
+            <summary>
+            Is the client library connected to Tracker Server and initialized?
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.Trackerstate">
+            <summary>
+            The current state of the connected TrackerDevice.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.LastCalibrationResult">
+            <summary>
+            The lastest performed and valid CalibrationResult. Note the result is not nessesarily positive
+            and clients should evaluate the result before using. 
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.IsCalibrating">
+            <summary>
+            Is the client in the middle of a calibration process?
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.IsCalibrated">
+            <summary>
+            Is the client already calibrated?
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.ScreenIndex">
+            <summary>
+            Index of currently used screen. Used for multiscreen setups.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.ScreenResolutionWidth">
+            <summary>
+            Width of screen resolution in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.ScreenResolutionHeight">
+            <summary>
+            Height of screen resolution in pixels
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.ScreenPhysicalWidth">
+            <summary>
+            Physical width of screen in meters
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.ScreenPhysicalHeight">
+            <summary>
+            Physical height of screen in meters
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.HeartbeatMillis">
+            <summary>
+            Length of a heartbeat in milliseconds. 
+            The Tracker Server defines the desired length of a heartbeat and is in
+            this implementation automatically acquired through the Tracker API.
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.Framerate">
+            <summary>
+            Number of frames per second delivered by Tracker Server
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.version">
+            <summary>
+            Current API version compliance of Tracker Server
+            </summary>
+        </member>
+        <member name="P:TETCSharpClient.GazeManager.clientMode">
+            <summary>
+            Current running mode of this client
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.OnGazeApiResponse(System.String)">
+            <summary>
+            Internal callback method. Should not be called directly.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HandleOnTrackerStateChanged(System.Object)">
+            <summary>
+            Internal delegate helper method. Used fro ThreadPooling.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HandleOnCalibrationChanged(System.Object)">
+            <summary>
+            Internal delegate helper method. Used fro ThreadPooling.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HandleOnScreenStatesChanged(System.Object)">
+            <summary>
+            Internal delegate helper method. Used fro ThreadPooling.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.OnGazeApiConnectionStateChanged(System.Boolean)">
+            <summary>
+            Internal callback method. Should not be called directly.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HandleOnConnectionStateChanged(System.Object)">
+            <summary>
+            Internal delegate helper method. Used fro ThreadPooling.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.Activate(TETCSharpClient.GazeManager.ApiVersion,TETCSharpClient.GazeManager.ClientMode)">
+            <summary>
+            Activates TET C# Client and all underlying routines using default values. Should be called _only_ 
+            once when an application starts up. Calling thread will be locked during
+            initialization.
+            </summary>
+            <param name="apiVersion">Version number of the Tracker API that this client will be compliant to</param>
+            <param name="mode">Mode though which the client will receive GazeData. Either ClientMode.Push or ClientMode.Pull</param>
+            <returns>True if succesfully activated, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.Activate(TETCSharpClient.GazeManager.ApiVersion,TETCSharpClient.GazeManager.ClientMode,TETCSharpClient.IConnectionStateListener)">
+            <summary>
+            Activates TET C# Client and all underlying routines using default values. Should be called _only_ 
+            once when an application starts up. Calling thread will be locked during
+            initialization.
+            </summary>
+            <param name="apiVersion">Version number of the Tracker API that this client will be compliant to</param>
+            <param name="mode">Mode though which the client will receive GazeData. Either ClientMode.Push or ClientMode.Pull</param>
+            <param name="listener">Listener to notify once the connection to EyeTribe Server has been established</param>
+            <returns>True if succesfully activated, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.Activate(TETCSharpClient.GazeManager.ApiVersion,TETCSharpClient.GazeManager.ClientMode,System.String,System.Int32,TETCSharpClient.IConnectionStateListener)">
+            <summary>
+            Activates TET C# Client and all underlying routines. Should be called _only_ 
+            once when an application starts up. Calling thread will be locked during
+            initialization.
+            </summary>
+            <param name="apiVersion">Version number of the Tracker API that this client will be compliant to</param>
+            <param name="mode">Mode though which the client will receive GazeData. Either ClientMode.Push or ClientMode.Pull</param>
+            <param name="hostname">The host name or IP address where the eye tracking server is running.</param>
+            <param name="portnumber">The port number used for the eye tracking server</param>
+            <param name="listener">Listener to notify once the connection to EyeTribe Server has been established</param> 
+            <returns>True if succesfully activated, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.Activate(TETCSharpClient.GazeManager.ApiVersion,TETCSharpClient.GazeManager.ClientMode,System.String,System.Int32)">
+            <summary>
+            Activates TET C# Client and all underlying routines. Should be called _only_ 
+            once when an application starts up. Calling thread will be locked during
+            initialization.
+            </summary>
+            <param name="apiVersion">Version number of the Tracker API that this client will be compliant to</param>
+            <param name="mode">Mode though which the client will receive GazeData. Either ClientMode.Push or ClientMode.Pull</param>
+            <param name="hostname">The host name or IP address where the eye tracking server is running.</param>
+            <param name="portnumber">The port number used for the eye tracking server</param>
+            <returns>True if succesfully activated, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HandleServerConnect(System.Object)">
+            <summary>
+            Internal delegate helper method. Used fro ThreadPooling.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.Deactivate">
+            <summary>
+            Deactivates TET C# Client and all under lying routines. Should be called when
+            a application closes down.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.AddGazeListener(TETCSharpClient.IGazeListener)">
+            <summary>
+            Adds a <see cref="T:TETCSharpClient.IGazeListener"/> to the TET C# client. This listener 
+            will recieve <see cref="T:TETCSharpClient.Data.GazeData"/> updates when available
+            </summary>
+            <param name="listener">The <see cref="T:TETCSharpClient.IGazeListener"/> instance to add</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.RemoveGazeListener(TETCSharpClient.IGazeListener)">
+            <summary>
+            Remove a <see cref="T:TETCSharpClient.IGazeListener"/> from the TET C# client.
+            </summary>
+            <returns>True if succesfully removed, false otherwise</returns>
+            <param name="listener">The <see cref="T:TETCSharpClient.IGazeListener"/> instance to remove</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.GetNumGazeListeners">
+            <summary>
+            Gets current number of attached <see cref="T:TETCSharpClient.IGazeListener"/> instances.
+            </summary>
+            <returns>Curent number of listeners</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HasGazeListener(TETCSharpClient.IGazeListener)">
+            <summary>
+            Checkes if a given instance of <see cref="T:TETCSharpClient.IGazeListener"/> is currently attached.
+            </summary>
+            <returns>True if already attached, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.AddCalibrationResultListener(TETCSharpClient.ICalibrationResultListener)">
+            <summary>
+            Adds a <see cref="T:TETCSharpClient.ICalibrationResultListener"/> to the TET C# client. This listener 
+            will recieve updates about calibration state changes.
+            </summary>
+            <param name="listener">The <see cref="T:TETCSharpClient.ICalibrationResultListener"/> instance to add</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.RemoveCalibrationResultListener(TETCSharpClient.ICalibrationResultListener)">
+            <summary>
+            Remove a <see cref="T:TETCSharpClient.ICalibrationResultListener"/> from the TET C# client.
+            </summary>
+            <returns>True if succesfully removed, false otherwise</returns>
+            <param name="listener">The <see cref="T:TETCSharpClient.ICalibrationResultListener"/> instance to remove</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.GetNumCalibrationResultListeners">
+            <summary>
+            Gets current number of attached <see cref="T:TETCSharpClient.ICalibrationResultListener"/> instances.
+            </summary>
+            <returns>Curent number of listeners</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HasCalibrationResultListener(TETCSharpClient.ICalibrationResultListener)">
+            <summary>
+            Checkes if a given instance of <see cref="T:TETCSharpClient.ICalibrationResultListener"/> is currently attached.
+            </summary>
+            <returns>True if already attached, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.AddTrackerStateListener(TETCSharpClient.ITrackerStateListener)">
+            <summary>
+            Adds a <see cref="T:TETCSharpClient.ITrackerStateListener"/> to the TET C# client. This listener 
+            will recieve updates about change of active screen index.
+            </summary>
+            <param name="listener">The <see cref="T:TETCSharpClient.ITrackerStateListener"/> instance to add</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.RemoveTrackerStateListener(TETCSharpClient.ITrackerStateListener)">
+            <summary>
+            Remove a <see cref="T:TETCSharpClient.ITrackerStateListener"/> from the TET C# client.
+            </summary>
+            <returns>True if succesfully removed, false otherwise</returns>
+            <param name="listener">The <see cref="T:TETCSharpClient.ITrackerStateListener"/> instance to remove</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.GetNumTrackerStateListeners">
+            <summary>
+            Gets current number of attached <see cref="T:TETCSharpClient.ITrackerStateListener"/> instances.
+            </summary>
+            <returns>Curent number of listeners</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HasTrackerStateListener(TETCSharpClient.ITrackerStateListener)">
+            <summary>
+            Checkes if a given instance of <see cref="T:TETCSharpClient.ITrackerStateListener"/> is currently attached.
+            </summary>
+            <returns>True if already attached, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.AddConnectionStateListener(TETCSharpClient.IConnectionStateListener)">
+            <summary>
+            Adds a <see cref="T:TETCSharpClient.IConnectionStateListener"/> to the TET C# client. This listener 
+            will recieve updates about change in connection state to the EyeTribe Server.
+            </summary>
+            <param name="listener">The <see cref="T:TETCSharpClient.IConnectionStateListener"/> instance to add</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.RemoveConnectionStateListener(TETCSharpClient.IConnectionStateListener)">
+            <summary>
+            Remove a <see cref="T:TETCSharpClient.IConnectionStateListener"/> from the TET C# client.
+            </summary>
+            <returns>True if succesfully removed, false otherwise</returns>
+            <param name="listener">The <see cref="T:TETCSharpClient.IConnectionStateListener"/> instance to remove</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.GetNumConnectionStateListeners">
+            <summary>
+            Gets current number of attached <see cref="T:TETCSharpClient.IConnectionStateListener"/> instances.
+            </summary>
+            <returns>Curent number of listeners</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.HasConnectionStateListener(TETCSharpClient.IConnectionStateListener)">
+            <summary>
+            Checkes if a given instance of <see cref="T:TETCSharpClient.IConnectionStateListener"/> is currently attached.
+            </summary>
+            <returns>True if already attached, false otherwise</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.ClearListeners">
+            <summary>
+            Clear all attached listeners, clears GazeData queue and stop broadcating
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.SwitchScreen(System.Int32,System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Switch currently active screen. Enabled the user to take control of which screen is used for calibration 
+            and gaze control.
+            </summary>
+            <param name="screenIndex">Index of nex screen. On windows 'Primary Screen' has index 0.</param>
+            <param name="screenResW">Screen resolution width in pixels</param>
+            <param name="screenResH">Screen resolution height in pixels</param>
+            <param name="screenPsyW">Physical Screen width in meters</param>
+            <param name="screenPsyH">Physical Screen height in meters</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.CalibrationStart(System.Int16,TETCSharpClient.ICalibrationProcessHandler)">
+            <summary>
+            Initiate a new calibration process. Must be called before any call to <see cref="M:TETCSharpClient.GazeManager.CalibrationPointStart(System.Int32,System.Int32)"/> 
+            or <see cref="M:TETCSharpClient.GazeManager.CalibrationPointEnd"/> .
+            <para/>
+            Any previous (and possible running) calibration process must be completed or aborted before calling this.
+            <para/>
+            A full calibration process consists of a number of calls to <see cref="M:TETCSharpClient.GazeManager.CalibrationPointStart(System.Int32,System.Int32)"/> 
+            and <see cref="M:TETCSharpClient.GazeManager.CalibrationPointEnd"/>  matching the total number of clibration points set by the
+            numCalibrationPoints parameter.
+            </summary>
+            <param name="numCalibrationPoints">The number of calibration points that will be used in this calibration</param>
+            <param name="listener">The <see cref="T:TETCSharpClient.ICalibrationProcessHandler"/>  instance that will receive callbacks during the 
+            calibration process</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.CalibrationPointStart(System.Int32,System.Int32)">
+            <summary>
+            Called for every calibration point during a calibration process. This call should be followed by a call to
+            <see cref="M:TETCSharpClient.GazeManager.CalibrationPointEnd"/>  1-2 seconds later.
+            <para/>
+            The calibration process must be initiated by a call to <see cref="M:TETCSharpClient.GazeManager.CalibrationStart(System.Int16,TETCSharpClient.ICalibrationProcessHandler)"/>  
+            before calling this.
+            </summary>
+            <param name="x">X coordinate of the calibration point</param>
+            <param name="y">Y coordinate of the calibration point</param>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.CalibrationPointEnd">
+            <summary>
+            Called for every calibration point during a calibration process. This should be
+            called 1-2 seconds after <see cref="M:TETCSharpClient.GazeManager.CalibrationPointStart(System.Int32,System.Int32)"/> .
+            The calibration process must be initiated by a call to <see cref="M:TETCSharpClient.GazeManager.CalibrationStart(System.Int16,TETCSharpClient.ICalibrationProcessHandler)"/> 
+            before calling this.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.CalibrationAbort">
+            <summary>
+            Cancels an ongoing calibration process.
+            </summary> 
+        </member>
+        <member name="M:TETCSharpClient.GazeManager.CalibrationClear">
+            <summary>
+            Resets calibration state, cancelling any previous calibrations.
+            </summary>
+        </member>
+        <member name="T:TETCSharpClient.IGazeListener">
+            <summary>
+            Callback interface with methods associated to Gaze Tracking.
+            This interface should be implemented by classes that are to recieve live GazeData stream.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.IGazeListener.OnGazeUpdate(TETCSharpClient.Data.GazeData)">
+            <summary>
+            A notification call back indicating that a new GazeData frame is available. 
+            Implementing classes should update themselves accordingly if needed.
+            Register for updates through GazeManager.AddGazeListener().
+            </summary>
+            <param name="gazeData">Latest GazeData frame processed by Tracker Server</param> 
+        </member>
+        <member name="T:TETCSharpClient.ICalibrationResultListener">
+            <summary>
+            Callback interface with methods associated to the changes of CalibrationResult.
+            This interface should be implemented by classes that are to recieve only changes in CalibrationResult
+            and who are _not_ to perform the calibration process itself.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.ICalibrationResultListener.OnCalibrationChanged(System.Boolean,TETCSharpClient.Data.CalibrationResult)">
+            <summary>
+            A notification call back indicating that state of calibration has changed. 
+            Implementing classes should update themselves accordingly if needed.
+            Register for updates through GazeManager.AddCalibrationResultListener().
+            </summary>
+            <param name="isCalibrated">is the Tracker Server calibrated?</param>
+            <param name="calibResult">if calibrated, the currently valid CalibrationResult, otherwise null</param>
+        </member>
+        <member name="T:TETCSharpClient.ITrackerStateListener">
+            <summary>
+            Callback interface with methods associated to the state of the physical Tracker device.
+            This interface should be implemented by classes that are to receive notifications of 
+            changes in the state of the Tracker and handle these accordingly. This could be a class
+            in the 'View' layer telling the user that a Tracker has disconnected.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.ITrackerStateListener.OnTrackerStateChanged(TETCSharpClient.GazeManager.TrackerState)">
+            <summary>
+            A notification call back indicating that state of connected Tracker device has changed. 
+            Use this to detect if a tracker has been connected or disconnected.
+            Implementing classes should update themselves accordingly if needed.
+            Register for updates through GazeManager.AddTrackerStateListener().
+            </summary>
+            <param name="trackerState">the current state of the physical Tracker device</param>
+        </member>
+        <member name="M:TETCSharpClient.ITrackerStateListener.OnScreenStatesChanged(System.Int32,System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            A notification call back indicating that main screen index has changed. 
+            This is only relevant for multiscreen setups. Implementing classes should
+            update themselves accordingly if needed.
+            Register for updates through GazeManager.AddTrackerStateListener().
+            </summary>
+            <param name="screenIndex">the currently valid screen index</param>
+            <param name="screenResolutionWidth">screen resolution width in pixels</param>
+            <param name="screenResolutionHeight">screen resolution height in pixels</param>
+            <param name="screenPhysicalWidth">Physical screen width in meters</param>
+            <param name="screenPhysicalHeight">Physical screen height in meters</param>
+        </member>
+        <member name="T:TETCSharpClient.ICalibrationProcessHandler">
+            <summary>
+            Callback interface with methods associated to Calibration process.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.ICalibrationProcessHandler.OnCalibrationStarted">
+            <summary>
+            Called when a calibration process has been started. 
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.ICalibrationProcessHandler.OnCalibrationProgress(System.Double)">
+            <summary>
+            Called every time tracking of a single calibration points has completed.
+            </summary>
+            <param name="progress">'normalized' progress [0..1d]</param>
+        </member>
+        <member name="M:TETCSharpClient.ICalibrationProcessHandler.OnCalibrationProcessing">
+            <summary>
+            Called when all calibration points have been collected and calibration processing begins.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.ICalibrationProcessHandler.OnCalibrationResult(TETCSharpClient.Data.CalibrationResult)">
+            <summary>
+            Called when processing of calibration points and calibration as a whole has completed.
+            </summary>
+            <param name="calibResult">the results of the calibration process</param>
+        </member>
+        <member name="T:TETCSharpClient.IConnectionStateListener">
+            <summary>
+            Callback interface with methods associated to the state of the connection to the
+            EyeTribe Server. This interface should be implemented by classes that are to
+            receive notifications of changes in the connection state and handle these
+            accordingly. This could be a class in the 'View' layer telling the user that the
+            connection to the EyeTribe Server was lost.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.IConnectionStateListener.OnConnectionStateChanged(System.Boolean)">
+            <summary>
+            A notification call back indicating that the connection state has changed.
+            Use this to detect if connection the EyeTribe Server has been lost.
+            Implementing classes should update themselves accordingly if needed.
+            Register for updates through GazeManager.AddConnectionStateListener().
+            </summary>
+            <param name="isConnected">the current state of the connection</param>
+        </member>
+        <member name="T:TETCSharpClient.GazeUtils">
+            <summary>
+            Utility methods common to gaze control routines.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesCenterNormalized(TETCSharpClient.Data.Eye,TETCSharpClient.Data.Eye)">
+            <summary>
+            Find average pupil center of two eyes.
+            </summary>
+            <param name="leftEye"></param>
+            <param name="rightEye"></param>
+            <returns>the average center point in normalized values</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesCenterNormalized(TETCSharpClient.Data.GazeData)">
+            <summary>
+            Find average pupil center of two eyes.
+            </summary>
+            <param name="gazeData">gaze data frame to base calculation upon</param>
+            <returns>the average center point in normalized values</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesCenterPixels(TETCSharpClient.Data.Eye,TETCSharpClient.Data.Eye,System.Int32,System.Int32)">
+            <summary>
+            Find average pupil center of two eyes.
+            </summary>
+            <param name="leftEye"></param>
+            <param name="rightEye"></param>
+            <param name="screenWidth"></param>
+            <param name="screenHeight"></param>
+            <returns>the average center point in pixels</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesCenterPixels(TETCSharpClient.Data.GazeData,System.Int32,System.Int32)">
+            <summary>
+            Find average pupil center of two eyes.
+            </summary>
+            <param name="gazeData">gaze data frame to base calculation upon</param>
+            <param name="screenWidth"></param>
+            <param name="screenHeight"></param>
+            <returns>the average center point in pixels</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesDistanceNormalized(TETCSharpClient.Data.Eye,TETCSharpClient.Data.Eye)">
+            <summary>
+            Calculates distance between pupil centers based on previously
+            recorded min and max values
+            </summary>
+            <param name="leftEye"></param>
+            <param name="rightEye"></param>
+            <returns>a normalized value [0..1]</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetEyesDistanceNormalized(TETCSharpClient.Data.GazeData)">
+            <summary>
+            Calculates distance between pupil centers based on previously
+            recorded min and max values
+            </summary>
+            <param name="gazeData">gaze data frame to base calculation upon</param>
+            <returns>a normalized value [0..1]</returns>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetDistancePoint2D(TETCSharpClient.Data.Point2D,TETCSharpClient.Data.Point2D)">
+            <summary>
+            Calculates distance between two points.
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetRelativeToScreenSpace(TETCSharpClient.Data.Point2D,System.Int32,System.Int32)">
+            <summary>
+            Converts a relative point to screen point in pixels
+            </summary>
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetNormalizedCoords(TETCSharpClient.Data.Point2D,System.Int32,System.Int32)">
+            <summary>
+            Normalizes a pixel point based on screen dims
+            </summary>
+            <param name="point">point in pixels to normalize</param>
+            <param name="screenWidth">the width value to base normalization upon</param>
+            <param name="screenHeight">the height value to base normalization upon</param>
+            <returns>normalized 2d point</returns> 
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetNormalizedMapping(TETCSharpClient.Data.Point2D,System.Int32,System.Int32)">
+            <summary>
+            Maps a 2d pixel point into normalized space [x: -1:1 , y: -1:1]
+            </summary>
+            <param name="point">point in pixels to normalize</param>
+            <param name="screenWidth">the width value to base normalization upon</param>
+            <param name="screenHeight">the height value to base normalization upon</param>
+            <returns>normalized 2d point</returns> 
+        </member>
+        <member name="M:TETCSharpClient.GazeUtils.GetTimeDeltaNow(TETCSharpClient.Data.GazeData)">
+            <summary>
+            Returns the time difference between GazeData timestamp and current system time in millis
+            </summary>
+            <param name="gazeData">gaze data frame to base calculation upon</param>
+            <returns>time difference in milliseconds</returns> 
+        </member>
+        <member name="T:TETCSharpClient.Heartbeat">
+            <summary>
+            Class responsible for sending 'heartbeats' to the underlying TET C# Client Tracker notifying that the client is alive. 
+            The Tracker Server defines the desired length of a heartbeat and is in this implementation automatically acquired through the Tracker API.
+            </summary>
+        </member>
+    </members>
+</doc>

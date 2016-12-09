@@ -1,0 +1,38 @@
+﻿<Page x:Class="DyslexiaDemo.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
+      xmlns:local="clr-namespace:DyslexiaDemo"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1230"
+      MinHeight="720"
+      MaxHeight="720"
+      Width="1250"
+      MinWidth="1250"
+      MaxWidth="1250"
+      Title="Dyslexia Login">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFDDF0F5" Offset="1"/>
+                <GradientStop Color="#FFB8E3F3"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="licenceTextBox" Height="40" Margin="450,268,450,0" VerticalAlignment="Top" Width="350" FontSize="21.333" HorizontalAlignment="Center" TextAlignment="Center" ToolTip="Licence Number" Cursor="Pen" Text="" VerticalContentAlignment="Center"/>
+        <Button x:Name="loginButton" Click="LoginButtonClicked" Content="Log in" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1,0" Height="35" FontSize="18.667" FontWeight="Bold" UseLayoutRounding="True">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF7CACC4" Offset="1"/>
+                    <GradientStop Color="#FFAAD0E2"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <ComboBox x:Name="IdComboBox" HorizontalAlignment="Center" Margin="450,214,450,0" VerticalAlignment="Top" Width="350" Height="40" FontSize="21.333" VerticalContentAlignment="Center" Visibility="Hidden"/>
+        <Label x:Name="studentLabel" Content="Select Student*" HorizontalAlignment="Left" Margin="450,183,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Red" Visibility="Hidden"/>
+        
+        <Image x:Name="loadingImage" Height="150" gif:ImageBehavior.AnimatedSource="loading.gif" Margin="0,401,0,119" Visibility="Hidden" Source="loading.gif" />
+    </Grid>
+</Page>
